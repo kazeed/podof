@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Podof", "Podof\Podof.csproj", "{91E7A053-BBD7-4319-8786-40AAED260D62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "global", "global", "{EB3900B3-08A0-4EBA-A6D5-895005C1F966}"
+	ProjectSection(SolutionItems) = preProject
+		Podof\.editorconfig = Podof\.editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91E7A053-BBD7-4319-8786-40AAED260D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E7A053-BBD7-4319-8786-40AAED260D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E7A053-BBD7-4319-8786-40AAED260D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E7A053-BBD7-4319-8786-40AAED260D62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F806141-48BA-4013-9D45-F3982D420DBC}
+	EndGlobalSection
+EndGlobal
