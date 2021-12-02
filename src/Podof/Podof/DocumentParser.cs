@@ -6,7 +6,7 @@ using Podof.Util;
 
 namespace Podof
 {
-    public class DocumentParser
+    public class DocumentParser : IDocumentParser
     {
         private const char Space = ' ';
         private byte[] file;
@@ -20,14 +20,14 @@ namespace Podof
 
         public void Parse(byte[] file)
         {
-            if (file == null ||file.Length == 0) throw new ArgumentException(nameof(file));
+            if (file == null || file.Length == 0) throw new ArgumentException(nameof(file));
             if (!IsPdf()) throw new NotSupportedException("The provided file is not a PDF.");
 
             this.file = file;
 
             if (!IsLinearized)
             {
-                
+
                 var locators = GetLocators(GetCrossRefLocation());
                 var objects = new PdfObject[locators.Length];
                 for (int i = 0; i < locators.Length; i++)
@@ -50,14 +50,14 @@ namespace Podof
             const string marker = "startxref";
             var start = file.Search(marker.AsBytes(), offset) + marker.Length;
             using var ms = new MemoryStream(file);
-            ms.Seek(start, SeekOrigin.Begin);  
+            ms.Seek(start, SeekOrigin.Begin);
             var encoding = System.Text.Encoding.GetEncoding(1252);
             using var reader = new StreamReader(ms, encoding);
             if (reader.Peek() == '\n' || reader.Peek() == '\r') _ = reader.Read(); // If line ends with CRLF, discard one char.
             return long.Parse(reader.ReadLine());
         }
-        
-        private long[] GetLocators (long offset)
+
+        private long[] GetLocators(long offset)
         {
             Debug.WriteLine("Enter GetPointers.");
 
@@ -82,6 +82,6 @@ namespace Podof
             return locators;
         }
 
-        
+
     }
 }
