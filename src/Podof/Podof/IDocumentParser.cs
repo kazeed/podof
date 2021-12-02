@@ -1,7 +1,9 @@
-﻿namespace Podof
+﻿using Podof.Model;
+
+namespace Podof
 {
     public interface IDocumentParser
     {
-        void Parse(byte[] file);
+        PdfDocument Parse(byte[] file);
     }
 }

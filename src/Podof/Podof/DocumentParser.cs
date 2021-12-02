@@ -18,7 +18,7 @@ namespace Podof
             this.objectParser = objectParser ?? throw new ArgumentNullException(nameof(objectParser));
         }
 
-        public void Parse(byte[] file)
+        public PdfDocument Parse(byte[] file)
         {
             if (file == null || file.Length == 0) throw new ArgumentException(nameof(file));
             if (!IsPdf()) throw new NotSupportedException("The provided file is not a PDF.");
@@ -34,11 +34,17 @@ namespace Podof
                 {
                     objects[i] = objectParser.Parse(file, locators[i]);
                 }
+
+                return new PdfDocument
+                {
+                    Objects = objects
+                };
             }
             else
             {
                 throw new NotImplementedException();
             }
+
         }
 
         private bool IsPdf() => file.Search("%PDF-".AsBytes()) != -1;
